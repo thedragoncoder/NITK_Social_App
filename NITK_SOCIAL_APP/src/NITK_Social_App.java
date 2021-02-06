@@ -26,21 +26,208 @@ public class NITK_Social_App extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        signUpFrame = new javax.swing.JFrame();
+        loginFrame = new javax.swing.JFrame();
+        profileFrame = new javax.swing.JFrame();
+        postDetailsFrame = new javax.swing.JFrame();
+        eventsFrame = new javax.swing.JFrame();
+        createPostFrame = new javax.swing.JFrame();
+        createEventFrame = new javax.swing.JFrame();
+        dashboard = new javax.swing.JFrame();
+        signUpButton = new javax.swing.JButton();
+        loginButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+
+        signUpFrame.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        signUpFrame.setMaximumSize(new java.awt.Dimension(1837, 1055));
+        signUpFrame.setMinimumSize(new java.awt.Dimension(1837, 1055));
+        signUpFrame.setPreferredSize(new java.awt.Dimension(1837, 1055));
+
+        javax.swing.GroupLayout signUpFrameLayout = new javax.swing.GroupLayout(signUpFrame.getContentPane());
+        signUpFrame.getContentPane().setLayout(signUpFrameLayout);
+        signUpFrameLayout.setHorizontalGroup(
+            signUpFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1549, Short.MAX_VALUE)
+        );
+        signUpFrameLayout.setVerticalGroup(
+            signUpFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 843, Short.MAX_VALUE)
+        );
+
+        loginFrame.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        loginFrame.setMaximumSize(new java.awt.Dimension(1837, 1055));
+        loginFrame.setMinimumSize(new java.awt.Dimension(1837, 1055));
+        loginFrame.setPreferredSize(new java.awt.Dimension(1837, 1055));
+
+        javax.swing.GroupLayout loginFrameLayout = new javax.swing.GroupLayout(loginFrame.getContentPane());
+        loginFrame.getContentPane().setLayout(loginFrameLayout);
+        loginFrameLayout.setHorizontalGroup(
+            loginFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        loginFrameLayout.setVerticalGroup(
+            loginFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        profileFrame.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        profileFrame.setMaximumSize(new java.awt.Dimension(1837, 1055));
+        profileFrame.setMinimumSize(new java.awt.Dimension(1837, 1055));
+        profileFrame.setPreferredSize(new java.awt.Dimension(1837, 1055));
+
+        javax.swing.GroupLayout profileFrameLayout = new javax.swing.GroupLayout(profileFrame.getContentPane());
+        profileFrame.getContentPane().setLayout(profileFrameLayout);
+        profileFrameLayout.setHorizontalGroup(
+            profileFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        profileFrameLayout.setVerticalGroup(
+            profileFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        postDetailsFrame.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        postDetailsFrame.setMaximumSize(new java.awt.Dimension(1837, 1055));
+        postDetailsFrame.setMinimumSize(new java.awt.Dimension(1837, 1055));
+        postDetailsFrame.setPreferredSize(new java.awt.Dimension(1837, 1055));
+
+        javax.swing.GroupLayout postDetailsFrameLayout = new javax.swing.GroupLayout(postDetailsFrame.getContentPane());
+        postDetailsFrame.getContentPane().setLayout(postDetailsFrameLayout);
+        postDetailsFrameLayout.setHorizontalGroup(
+            postDetailsFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        postDetailsFrameLayout.setVerticalGroup(
+            postDetailsFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        eventsFrame.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        eventsFrame.setMaximumSize(new java.awt.Dimension(1837, 1055));
+        eventsFrame.setMinimumSize(new java.awt.Dimension(1837, 1055));
+        eventsFrame.setPreferredSize(new java.awt.Dimension(1837, 1055));
+
+        javax.swing.GroupLayout eventsFrameLayout = new javax.swing.GroupLayout(eventsFrame.getContentPane());
+        eventsFrame.getContentPane().setLayout(eventsFrameLayout);
+        eventsFrameLayout.setHorizontalGroup(
+            eventsFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        eventsFrameLayout.setVerticalGroup(
+            eventsFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        createPostFrame.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        createPostFrame.setMaximumSize(new java.awt.Dimension(1837, 1055));
+        createPostFrame.setMinimumSize(new java.awt.Dimension(1837, 1055));
+        createPostFrame.setPreferredSize(new java.awt.Dimension(1837, 1055));
+
+        javax.swing.GroupLayout createPostFrameLayout = new javax.swing.GroupLayout(createPostFrame.getContentPane());
+        createPostFrame.getContentPane().setLayout(createPostFrameLayout);
+        createPostFrameLayout.setHorizontalGroup(
+            createPostFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1837, Short.MAX_VALUE)
+        );
+        createPostFrameLayout.setVerticalGroup(
+            createPostFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1055, Short.MAX_VALUE)
+        );
+
+        createEventFrame.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        createEventFrame.setMaximumSize(new java.awt.Dimension(1837, 1055));
+        createEventFrame.setMinimumSize(new java.awt.Dimension(1837, 1055));
+        createEventFrame.setPreferredSize(new java.awt.Dimension(1837, 1055));
+
+        javax.swing.GroupLayout createEventFrameLayout = new javax.swing.GroupLayout(createEventFrame.getContentPane());
+        createEventFrame.getContentPane().setLayout(createEventFrameLayout);
+        createEventFrameLayout.setHorizontalGroup(
+            createEventFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        createEventFrameLayout.setVerticalGroup(
+            createEventFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        dashboard.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        dashboard.setMaximumSize(new java.awt.Dimension(1837, 1055));
+        dashboard.setMinimumSize(new java.awt.Dimension(1837, 1055));
+        dashboard.setPreferredSize(new java.awt.Dimension(1837, 1055));
+
+        javax.swing.GroupLayout dashboardLayout = new javax.swing.GroupLayout(dashboard.getContentPane());
+        dashboard.getContentPane().setLayout(dashboardLayout);
+        dashboardLayout.setHorizontalGroup(
+            dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1837, Short.MAX_VALUE)
+        );
+        dashboardLayout.setVerticalGroup(
+            dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1055, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        signUpButton.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        signUpButton.setText("Sign Up");
+        signUpButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                signUpButtonActionPerformed(evt);
+            }
+        });
+
+        loginButton.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        loginButton.setText("Login");
+        loginButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginButtonActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Ubuntu Mono", 1, 24)); // NOI18N
+        jLabel1.setText("Welcome to the NITK Social App");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(198, 198, 198)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(signUpButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(loginButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(95, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addContainerGap(477, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(89, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(signUpButton)
+                .addGap(32, 32, 32)
+                .addComponent(loginButton)
+                .addContainerGap(308, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void signUpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signUpButtonActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        signUpFrame.setVisible(true);
+    }//GEN-LAST:event_signUpButtonActionPerformed
+
+    private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        loginFrame.setVisible(true);
+    }//GEN-LAST:event_loginButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +265,16 @@ public class NITK_Social_App extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JFrame createEventFrame;
+    private javax.swing.JFrame createPostFrame;
+    private javax.swing.JFrame dashboard;
+    private javax.swing.JFrame eventsFrame;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton loginButton;
+    private javax.swing.JFrame loginFrame;
+    private javax.swing.JFrame postDetailsFrame;
+    private javax.swing.JFrame profileFrame;
+    private javax.swing.JButton signUpButton;
+    private javax.swing.JFrame signUpFrame;
     // End of variables declaration//GEN-END:variables
 }
