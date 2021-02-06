@@ -1,4 +1,4 @@
-# NITK_Social_App
+# NITK Social Media App
 
 To make students’ doubt solving easy and saving the pain of Event Organisers to spam the event message in every WhatsApp group and much more, this app will be the one stop solution.
 Students will be able to ask any doubt related to studies or anything and those questions can be answered in comments of that post by other users.
