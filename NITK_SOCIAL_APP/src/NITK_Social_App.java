@@ -27,6 +27,19 @@ public class NITK_Social_App extends javax.swing.JFrame {
     private void initComponents() {
 
         signUpFrame = new javax.swing.JFrame();
+        signUpUserIDTF = new javax.swing.JTextField();
+        signUpUserIdLable = new javax.swing.JLabel();
+        signUpPasswordLabel = new javax.swing.JLabel();
+        signUpNameTF = new javax.swing.JTextField();
+        signUpNameLabel = new javax.swing.JLabel();
+        signUpEmailTF = new javax.swing.JTextField();
+        signUpEmailLabel = new javax.swing.JLabel();
+        signUpIsOrganisationCB = new javax.swing.JCheckBox();
+        signUpSignUpLabel = new javax.swing.JLabel();
+        signUpWebsiteLabel = new javax.swing.JLabel();
+        signUpWebsiteTF = new javax.swing.JTextField();
+        signUpSubmitButton = new javax.swing.JButton();
+        signUpPasswordField = new javax.swing.JPasswordField();
         loginFrame = new javax.swing.JFrame();
         profileFrame = new javax.swing.JFrame();
         postDetailsFrame = new javax.swing.JFrame();
@@ -43,15 +56,116 @@ public class NITK_Social_App extends javax.swing.JFrame {
         signUpFrame.setMinimumSize(new java.awt.Dimension(1837, 1055));
         signUpFrame.setPreferredSize(new java.awt.Dimension(1837, 1055));
 
+        signUpUserIDTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                signUpUserIDTFActionPerformed(evt);
+            }
+        });
+
+        signUpUserIdLable.setText("User ID :");
+
+        signUpPasswordLabel.setText("Password:");
+
+        signUpNameLabel.setText("Name :");
+
+        signUpEmailTF.setText(" ");
+        signUpEmailTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                signUpEmailTFActionPerformed(evt);
+            }
+        });
+
+        signUpEmailLabel.setText(" Email :");
+
+        signUpIsOrganisationCB.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
+        signUpIsOrganisationCB.setText("Organisation Account");
+
+        signUpSignUpLabel.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
+        signUpSignUpLabel.setText("Sign Up");
+
+        signUpWebsiteLabel.setText("Website ");
+
+        signUpWebsiteTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                signUpWebsiteTFActionPerformed(evt);
+            }
+        });
+
+        signUpSubmitButton.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        signUpSubmitButton.setText("Submit ");
+        signUpSubmitButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                signUpSubmitButtonActionPerformed(evt);
+            }
+        });
+
+        signUpPasswordField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                signUpPasswordFieldActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout signUpFrameLayout = new javax.swing.GroupLayout(signUpFrame.getContentPane());
         signUpFrame.getContentPane().setLayout(signUpFrameLayout);
         signUpFrameLayout.setHorizontalGroup(
             signUpFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1549, Short.MAX_VALUE)
+            .addGroup(signUpFrameLayout.createSequentialGroup()
+                .addGroup(signUpFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(signUpFrameLayout.createSequentialGroup()
+                        .addGap(441, 441, 441)
+                        .addComponent(signUpSubmitButton))
+                    .addGroup(signUpFrameLayout.createSequentialGroup()
+                        .addGap(386, 386, 386)
+                        .addGroup(signUpFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(signUpFrameLayout.createSequentialGroup()
+                                .addGroup(signUpFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(signUpFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(signUpUserIdLable, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(signUpPasswordLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(signUpWebsiteLabel)
+                                        .addComponent(signUpEmailLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(signUpNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(33, 33, 33)
+                                .addGroup(signUpFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(signUpEmailTF, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)
+                                    .addComponent(signUpNameTF)
+                                    .addComponent(signUpUserIDTF)
+                                    .addComponent(signUpWebsiteTF)
+                                    .addComponent(signUpPasswordField)))
+                            .addComponent(signUpSignUpLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(signUpIsOrganisationCB, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(1193, Short.MAX_VALUE))
         );
         signUpFrameLayout.setVerticalGroup(
             signUpFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 843, Short.MAX_VALUE)
+            .addGroup(signUpFrameLayout.createSequentialGroup()
+                .addGap(81, 81, 81)
+                .addComponent(signUpSignUpLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
+                .addGroup(signUpFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(signUpNameLabel)
+                    .addComponent(signUpNameTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24)
+                .addGroup(signUpFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(signUpUserIDTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(signUpUserIdLable, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(27, 27, 27)
+                .addGroup(signUpFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(signUpPasswordLabel)
+                    .addComponent(signUpPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addGroup(signUpFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(signUpWebsiteLabel)
+                    .addComponent(signUpWebsiteTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
+                .addGroup(signUpFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(signUpEmailTF)
+                    .addComponent(signUpEmailLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(30, 30, 30)
+                .addComponent(signUpIsOrganisationCB, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(54, 54, 54)
+                .addComponent(signUpSubmitButton)
+                .addContainerGap(462, Short.MAX_VALUE))
         );
 
         loginFrame.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -63,11 +177,11 @@ public class NITK_Social_App extends javax.swing.JFrame {
         loginFrame.getContentPane().setLayout(loginFrameLayout);
         loginFrameLayout.setHorizontalGroup(
             loginFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 1837, Short.MAX_VALUE)
         );
         loginFrameLayout.setVerticalGroup(
             loginFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 1055, Short.MAX_VALUE)
         );
 
         profileFrame.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -229,6 +343,62 @@ public class NITK_Social_App extends javax.swing.JFrame {
         loginFrame.setVisible(true);
     }//GEN-LAST:event_loginButtonActionPerformed
 
+    private void signUpUserIDTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signUpUserIDTFActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_signUpUserIDTFActionPerformed
+
+    private void signUpEmailTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signUpEmailTFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_signUpEmailTFActionPerformed
+
+    private void signUpWebsiteTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signUpWebsiteTFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_signUpWebsiteTFActionPerformed
+
+    private void signUpSubmitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signUpSubmitButtonActionPerformed
+        // TODO add your handling code here:
+        makeConnection();
+        String name = signUpNameTF.getText();
+        String userID = signUpUserIDTF.getText();
+        String password = new String(signUpPasswordField.getPassword());
+        String emailId = signUpEmailTF.getText();
+        String website = signUpWebsiteTF.getText();
+        if(signUpIsOrganisationCB.isSelected()){
+            //organisaton
+            String sql = "Select OrgID FROM Organization where OrgID = '"+userID+"';";
+            rs = stmt.executeQuery(sql);
+            if(rs.next()){
+                JOptionPane.showMessageDialog(null, "UserID already Present");
+                breakConnection();
+                return;
+            }
+            //OrgID, Password, Name, EmailID, Website,
+
+            sql = "Insert INTO Organization Values ('"+userID+"','"+password+"','"+name+"','"+emailId+"','"+website+"');";
+            stmt.executeUpdate(sql);
+        }      
+        else{
+            String sql = "Select UserID FROM User where UserID = '"+userID+"';";
+            rs = stmt.executeQuery(sql);
+            if(rs.next()){
+                JOptionPane.showMessageDialog(null, "UserID already Present");
+                breakConnection();
+                return;
+            }
+            //OrgID, Password, Name, EmailID, Website,
+
+            sql = "Insert INTO User Values ('"+userID+"','"+password+"','"+name+"','"+emailId+"','"+website+"');";
+            stmt.executeUpdate(sql);
+        }
+        breakConnection();
+        
+    }//GEN-LAST:event_signUpSubmitButtonActionPerformed
+
+    private void signUpPasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signUpPasswordFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_signUpPasswordFieldActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -275,6 +445,19 @@ public class NITK_Social_App extends javax.swing.JFrame {
     private javax.swing.JFrame postDetailsFrame;
     private javax.swing.JFrame profileFrame;
     private javax.swing.JButton signUpButton;
+    private javax.swing.JLabel signUpEmailLabel;
+    private javax.swing.JTextField signUpEmailTF;
     private javax.swing.JFrame signUpFrame;
+    private javax.swing.JCheckBox signUpIsOrganisationCB;
+    private javax.swing.JLabel signUpNameLabel;
+    private javax.swing.JTextField signUpNameTF;
+    private javax.swing.JPasswordField signUpPasswordField;
+    private javax.swing.JLabel signUpPasswordLabel;
+    private javax.swing.JLabel signUpSignUpLabel;
+    private javax.swing.JButton signUpSubmitButton;
+    private javax.swing.JTextField signUpUserIDTF;
+    private javax.swing.JLabel signUpUserIdLable;
+    private javax.swing.JLabel signUpWebsiteLabel;
+    private javax.swing.JTextField signUpWebsiteTF;
     // End of variables declaration//GEN-END:variables
 }
