@@ -1,9 +1,11 @@
+import java.sql.*;
+import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author kirasky
@@ -16,7 +18,30 @@ public class NITK_Social_App extends javax.swing.JFrame {
     public NITK_Social_App() {
         initComponents();
     }
-
+    Connection con=null;
+    String USER = null;
+    Statement stmt=null;
+    ResultSet rs=null;
+    public void makeConnection(){
+        try{
+            con = DriverManager.getConnection("jdbc:mysql://sql12.freemysqlhosting.net:3306/sql12391126", "sql12391126", "Mx5G9DXTqv");
+            stmt=con.createStatement();
+        }
+        catch(Exception e){
+           JOptionPane.showMessageDialog(null, e.getMessage());
+        } 
+    }
+    public void breakConnection(){
+        try{
+            rs.close();
+            stmt.close();
+            con.close();
+        }
+        catch(Exception e){
+           JOptionPane.showMessageDialog(null, e.getMessage());    
+        }
+        
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -41,20 +66,26 @@ public class NITK_Social_App extends javax.swing.JFrame {
         signUpSubmitButton = new javax.swing.JButton();
         signUpPasswordField = new javax.swing.JPasswordField();
         loginFrame = new javax.swing.JFrame();
+        jLabel2 = new javax.swing.JLabel();
+        loginUserIdTF = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        loginPasswordPF = new javax.swing.JPasswordField();
+        loginIsOrganisationCB = new javax.swing.JCheckBox();
+        loginLoginBtn = new javax.swing.JButton();
         profileFrame = new javax.swing.JFrame();
         postDetailsFrame = new javax.swing.JFrame();
         eventsFrame = new javax.swing.JFrame();
         createPostFrame = new javax.swing.JFrame();
         createEventFrame = new javax.swing.JFrame();
         dashboard = new javax.swing.JFrame();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         signUpButton = new javax.swing.JButton();
         loginButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         signUpFrame.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        signUpFrame.setMaximumSize(new java.awt.Dimension(1837, 1055));
         signUpFrame.setMinimumSize(new java.awt.Dimension(1837, 1055));
-        signUpFrame.setPreferredSize(new java.awt.Dimension(1837, 1055));
 
         signUpUserIDTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -169,25 +200,83 @@ public class NITK_Social_App extends javax.swing.JFrame {
         );
 
         loginFrame.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        loginFrame.setMaximumSize(new java.awt.Dimension(1837, 1055));
         loginFrame.setMinimumSize(new java.awt.Dimension(1837, 1055));
-        loginFrame.setPreferredSize(new java.awt.Dimension(1837, 1055));
+
+        jLabel2.setFont(new java.awt.Font("Ubuntu", 0, 48)); // NOI18N
+        jLabel2.setText("User ID");
+
+        loginUserIdTF.setFont(new java.awt.Font("Ubuntu", 0, 48)); // NOI18N
+        loginUserIdTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginUserIdTFActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setFont(new java.awt.Font("Ubuntu", 0, 48)); // NOI18N
+        jLabel3.setText("Password");
+
+        loginPasswordPF.setFont(new java.awt.Font("Ubuntu", 0, 48)); // NOI18N
+
+        loginIsOrganisationCB.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+        loginIsOrganisationCB.setText("Organisation Account");
+        loginIsOrganisationCB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginIsOrganisationCBActionPerformed(evt);
+            }
+        });
+
+        loginLoginBtn.setFont(new java.awt.Font("Ubuntu", 0, 48)); // NOI18N
+        loginLoginBtn.setText("Login");
+        loginLoginBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginLoginBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout loginFrameLayout = new javax.swing.GroupLayout(loginFrame.getContentPane());
         loginFrame.getContentPane().setLayout(loginFrameLayout);
         loginFrameLayout.setHorizontalGroup(
             loginFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 1837, Short.MAX_VALUE)
+            .addGroup(loginFrameLayout.createSequentialGroup()
+                .addGap(631, 631, 631)
+                .addGroup(loginFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(loginIsOrganisationCB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(loginFrameLayout.createSequentialGroup()
+                        .addGroup(loginFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(46, 46, 46)
+                        .addGroup(loginFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(loginPasswordPF)
+                            .addComponent(loginUserIdTF, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(639, 639, 639))
+            .addGroup(loginFrameLayout.createSequentialGroup()
+                .addGap(827, 827, 827)
+                .addComponent(loginLoginBtn)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         loginFrameLayout.setVerticalGroup(
             loginFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 1055, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, loginFrameLayout.createSequentialGroup()
+                .addContainerGap(452, Short.MAX_VALUE)
+                .addGroup(loginFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(loginUserIdTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(loginFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(loginPasswordPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
+                .addComponent(loginIsOrganisationCB)
+                .addGap(55, 55, 55)
+                .addComponent(loginLoginBtn)
+                .addGap(276, 276, 276))
         );
 
         profileFrame.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        profileFrame.setMaximumSize(new java.awt.Dimension(1837, 1055));
         profileFrame.setMinimumSize(new java.awt.Dimension(1837, 1055));
-        profileFrame.setPreferredSize(new java.awt.Dimension(1837, 1055));
 
         javax.swing.GroupLayout profileFrameLayout = new javax.swing.GroupLayout(profileFrame.getContentPane());
         profileFrame.getContentPane().setLayout(profileFrameLayout);
@@ -201,9 +290,7 @@ public class NITK_Social_App extends javax.swing.JFrame {
         );
 
         postDetailsFrame.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        postDetailsFrame.setMaximumSize(new java.awt.Dimension(1837, 1055));
         postDetailsFrame.setMinimumSize(new java.awt.Dimension(1837, 1055));
-        postDetailsFrame.setPreferredSize(new java.awt.Dimension(1837, 1055));
 
         javax.swing.GroupLayout postDetailsFrameLayout = new javax.swing.GroupLayout(postDetailsFrame.getContentPane());
         postDetailsFrame.getContentPane().setLayout(postDetailsFrameLayout);
@@ -217,9 +304,7 @@ public class NITK_Social_App extends javax.swing.JFrame {
         );
 
         eventsFrame.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        eventsFrame.setMaximumSize(new java.awt.Dimension(1837, 1055));
         eventsFrame.setMinimumSize(new java.awt.Dimension(1837, 1055));
-        eventsFrame.setPreferredSize(new java.awt.Dimension(1837, 1055));
 
         javax.swing.GroupLayout eventsFrameLayout = new javax.swing.GroupLayout(eventsFrame.getContentPane());
         eventsFrame.getContentPane().setLayout(eventsFrameLayout);
@@ -233,9 +318,7 @@ public class NITK_Social_App extends javax.swing.JFrame {
         );
 
         createPostFrame.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        createPostFrame.setMaximumSize(new java.awt.Dimension(1837, 1055));
         createPostFrame.setMinimumSize(new java.awt.Dimension(1837, 1055));
-        createPostFrame.setPreferredSize(new java.awt.Dimension(1837, 1055));
 
         javax.swing.GroupLayout createPostFrameLayout = new javax.swing.GroupLayout(createPostFrame.getContentPane());
         createPostFrame.getContentPane().setLayout(createPostFrameLayout);
@@ -265,19 +348,42 @@ public class NITK_Social_App extends javax.swing.JFrame {
         );
 
         dashboard.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        dashboard.setMaximumSize(new java.awt.Dimension(1837, 1055));
         dashboard.setMinimumSize(new java.awt.Dimension(1837, 1055));
-        dashboard.setPreferredSize(new java.awt.Dimension(1837, 1055));
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "postID", "Heading", "userID"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout dashboardLayout = new javax.swing.GroupLayout(dashboard.getContentPane());
         dashboard.getContentPane().setLayout(dashboardLayout);
         dashboardLayout.setHorizontalGroup(
             dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1837, Short.MAX_VALUE)
+            .addGroup(dashboardLayout.createSequentialGroup()
+                .addGap(224, 224, 224)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(1161, Short.MAX_VALUE))
         );
         dashboardLayout.setVerticalGroup(
             dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1055, Short.MAX_VALUE)
+            .addGroup(dashboardLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(615, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -330,18 +436,23 @@ public class NITK_Social_App extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    
+    
     private void signUpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signUpButtonActionPerformed
         // TODO add your handling code here:
-        this.dispose();
         signUpFrame.setVisible(true);
+        this.dispose();
+        
     }//GEN-LAST:event_signUpButtonActionPerformed
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
         // TODO add your handling code here:
-        this.dispose();
         loginFrame.setVisible(true);
+        this.dispose();
+        
     }//GEN-LAST:event_loginButtonActionPerformed
+
 
     private void signUpUserIDTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signUpUserIDTFActionPerformed
         // TODO add your handling code here:
@@ -359,37 +470,45 @@ public class NITK_Social_App extends javax.swing.JFrame {
     private void signUpSubmitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signUpSubmitButtonActionPerformed
         // TODO add your handling code here:
         makeConnection();
-        String name = signUpNameTF.getText();
-        String userID = signUpUserIDTF.getText();
-        String password = new String(signUpPasswordField.getPassword());
-        String emailId = signUpEmailTF.getText();
-        String website = signUpWebsiteTF.getText();
-        if(signUpIsOrganisationCB.isSelected()){
-            //organisaton
-            String sql = "Select OrgID FROM Organization where OrgID = '"+userID+"';";
-            rs = stmt.executeQuery(sql);
-            if(rs.next()){
-                JOptionPane.showMessageDialog(null, "UserID already Present");
-                breakConnection();
-                return;
-            }
-            //OrgID, Password, Name, EmailID, Website,
+        try{
+            String name = signUpNameTF.getText();
+            String userID = signUpUserIDTF.getText();
+            String password = new String(signUpPasswordField.getPassword());
+            String emailId = signUpEmailTF.getText();
+            String website = signUpWebsiteTF.getText();
+            if(signUpIsOrganisationCB.isSelected()){
+                //organisaton
+                String sql = "Select OrgID FROM Organization where OrgID = '"+userID+"';";
+                rs = stmt.executeQuery(sql);
+                if(rs.next()){
+                    JOptionPane.showMessageDialog(null, "UserID already Present");
+                    breakConnection();
+                    return;
+                }
+                //OrgID, Password, Name, EmailID, Website,
 
-            sql = "Insert INTO Organization Values ('"+userID+"','"+password+"','"+name+"','"+emailId+"','"+website+"');";
-            stmt.executeUpdate(sql);
-        }      
-        else{
-            String sql = "Select UserID FROM User where UserID = '"+userID+"';";
-            rs = stmt.executeQuery(sql);
-            if(rs.next()){
-                JOptionPane.showMessageDialog(null, "UserID already Present");
-                breakConnection();
-                return;
-            }
-            //OrgID, Password, Name, EmailID, Website,
+                sql = "Insert INTO Organization Values ('"+userID+"','"+password+"','"+name+"','"+emailId+"','"+website+"');";
+                stmt.executeUpdate(sql);
+            }      
+            else{
+                String sql = "Select UserID FROM Users where UserID = '"+userID+"';";
+                rs = stmt.executeQuery(sql);
+                if(rs.next()){
+                    JOptionPane.showMessageDialog(null, "UserID already Present");
+                    breakConnection();
+                    return;
+                }
+                //OrgID, Password, Name, EmailID, Website,
 
-            sql = "Insert INTO User Values ('"+userID+"','"+password+"','"+name+"','"+emailId+"','"+website+"');";
-            stmt.executeUpdate(sql);
+                sql = "Insert INTO Users Values ('"+userID+"','"+password+"','"+name+"','"+emailId+"','"+website+"');";
+                stmt.executeUpdate(sql);
+            }
+            USER = userID;
+            dashboard.setVisible(true);
+            signUpFrame.dispose();
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null,e.getMessage());
         }
         breakConnection();
         
@@ -398,6 +517,71 @@ public class NITK_Social_App extends javax.swing.JFrame {
     private void signUpPasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signUpPasswordFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_signUpPasswordFieldActionPerformed
+
+    private void loginUserIdTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginUserIdTFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_loginUserIdTFActionPerformed
+
+    private void loginIsOrganisationCBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginIsOrganisationCBActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_loginIsOrganisationCBActionPerformed
+
+    private void loginLoginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginLoginBtnActionPerformed
+        // TODO add your handling code here:
+        makeConnection();
+        try{
+            String userID = loginUserIdTF.getText();
+            String password = new String(loginPasswordPF.getPassword());
+            
+            if(loginIsOrganisationCB.isSelected()){
+                //organisaton
+                String sql = "Select OrgID FROM Organization where OrgID = '"+userID+"';";
+                rs = stmt.executeQuery(sql);
+                if(!rs.next()){
+                    JOptionPane.showMessageDialog(null, "UserID is Not Present");
+                    breakConnection();
+                    return;
+                }
+                sql = "Select Password FROM Organization where OrgID = '"+userID+"';";
+                rs = stmt.executeQuery(sql);
+                if(!password.equals(rs.getString("Password"))){
+                    JOptionPane.showMessageDialog(null, "Password is Incorrect");
+                    breakConnection();
+                    return;
+                }
+                
+            }
+            else{
+                //individual
+                String sql = "Select UserID FROM Users where UserID = '"+userID+"';";
+                rs = stmt.executeQuery(sql);
+                if(!rs.next()){
+                    JOptionPane.showMessageDialog(null, "UserID is Not Present");
+                    breakConnection();
+                    return;
+                }
+                sql = "Select Password FROM Users where UserID = '"+userID+"';";
+                rs = stmt.executeQuery(sql);
+                rs.next();
+                if(!password.equals(rs.getString("Password"))){
+                    JOptionPane.showMessageDialog(null, "Password is Incorrect");
+                    breakConnection();
+                    return;
+                }
+                
+                
+            }
+            USER = userID;
+            dashboard.setVisible(true);
+            loginFrame.dispose();
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+        breakConnection();
+        
+    }//GEN-LAST:event_loginLoginBtnActionPerformed
+
 
     /**
      * @param args the command line arguments
@@ -440,8 +624,16 @@ public class NITK_Social_App extends javax.swing.JFrame {
     private javax.swing.JFrame dashboard;
     private javax.swing.JFrame eventsFrame;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JButton loginButton;
     private javax.swing.JFrame loginFrame;
+    private javax.swing.JCheckBox loginIsOrganisationCB;
+    private javax.swing.JButton loginLoginBtn;
+    private javax.swing.JPasswordField loginPasswordPF;
+    private javax.swing.JTextField loginUserIdTF;
     private javax.swing.JFrame postDetailsFrame;
     private javax.swing.JFrame profileFrame;
     private javax.swing.JButton signUpButton;
