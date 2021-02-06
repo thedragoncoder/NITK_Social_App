@@ -1,9 +1,11 @@
+import java.sql.*;
+import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author kirasky
@@ -16,7 +18,29 @@ public class NITK_Social_App extends javax.swing.JFrame {
     public NITK_Social_App() {
         initComponents();
     }
-
+    Connection con=null;
+    Statement stmt=null;
+    ResultSet rs=null;
+    public void makeConnection(){
+        try{
+            con = DriverManager.getConnection("jdbc:mysql://sql12.freemysqlhosting.net:3306/sql12391126", "sql12391126", "Mx5G9DXTqv");
+            stmt=con.createStatement();
+        }
+        catch(Exception e){
+           JOptionPane.showMessageDialog(null, e.getMessage());
+        } 
+    }
+    public void breakConnection(){
+        try{
+            rs.close();
+            stmt.close();
+            con.close();
+        }
+        catch(Exception e){
+           JOptionPane.showMessageDialog(null, e.getMessage());    
+        }
+        
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -28,6 +52,12 @@ public class NITK_Social_App extends javax.swing.JFrame {
 
         signUpFrame = new javax.swing.JFrame();
         loginFrame = new javax.swing.JFrame();
+        jLabel2 = new javax.swing.JLabel();
+        loginUserIdTF = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        loginPasswordPF = new javax.swing.JPasswordField();
+        loginIsOrganisationCB = new javax.swing.JCheckBox();
+        loginLoginBtn = new javax.swing.JButton();
         profileFrame = new javax.swing.JFrame();
         postDetailsFrame = new javax.swing.JFrame();
         eventsFrame = new javax.swing.JFrame();
@@ -59,15 +89,75 @@ public class NITK_Social_App extends javax.swing.JFrame {
         loginFrame.setMinimumSize(new java.awt.Dimension(1837, 1055));
         loginFrame.setPreferredSize(new java.awt.Dimension(1837, 1055));
 
+        jLabel2.setFont(new java.awt.Font("Ubuntu", 0, 48)); // NOI18N
+        jLabel2.setText("User ID");
+
+        loginUserIdTF.setFont(new java.awt.Font("Ubuntu", 0, 48)); // NOI18N
+        loginUserIdTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginUserIdTFActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setFont(new java.awt.Font("Ubuntu", 0, 48)); // NOI18N
+        jLabel3.setText("Password");
+
+        loginPasswordPF.setFont(new java.awt.Font("Ubuntu", 0, 48)); // NOI18N
+
+        loginIsOrganisationCB.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+        loginIsOrganisationCB.setText("Organisation Account");
+        loginIsOrganisationCB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginIsOrganisationCBActionPerformed(evt);
+            }
+        });
+
+        loginLoginBtn.setFont(new java.awt.Font("Ubuntu", 0, 48)); // NOI18N
+        loginLoginBtn.setText("Login");
+        loginLoginBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginLoginBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout loginFrameLayout = new javax.swing.GroupLayout(loginFrame.getContentPane());
         loginFrame.getContentPane().setLayout(loginFrameLayout);
         loginFrameLayout.setHorizontalGroup(
             loginFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(loginFrameLayout.createSequentialGroup()
+                .addGap(631, 631, 631)
+                .addGroup(loginFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(loginIsOrganisationCB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(loginFrameLayout.createSequentialGroup()
+                        .addGroup(loginFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(46, 46, 46)
+                        .addGroup(loginFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(loginPasswordPF)
+                            .addComponent(loginUserIdTF, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(639, 639, 639))
+            .addGroup(loginFrameLayout.createSequentialGroup()
+                .addGap(827, 827, 827)
+                .addComponent(loginLoginBtn)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         loginFrameLayout.setVerticalGroup(
             loginFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, loginFrameLayout.createSequentialGroup()
+                .addContainerGap(452, Short.MAX_VALUE)
+                .addGroup(loginFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(loginUserIdTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(loginFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(loginPasswordPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
+                .addComponent(loginIsOrganisationCB)
+                .addGap(55, 55, 55)
+                .addComponent(loginLoginBtn)
+                .addGap(276, 276, 276))
         );
 
         profileFrame.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -216,7 +306,9 @@ public class NITK_Social_App extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    
+    
     private void signUpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signUpButtonActionPerformed
         // TODO add your handling code here:
         this.dispose();
@@ -228,6 +320,29 @@ public class NITK_Social_App extends javax.swing.JFrame {
         this.dispose();
         loginFrame.setVisible(true);
     }//GEN-LAST:event_loginButtonActionPerformed
+
+    private void loginUserIdTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginUserIdTFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_loginUserIdTFActionPerformed
+
+    private void loginIsOrganisationCBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginIsOrganisationCBActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_loginIsOrganisationCBActionPerformed
+
+    private void loginLoginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginLoginBtnActionPerformed
+        // TODO add your handling code here:
+        String userId=loginUserIdTF.getText();
+        String pswd=new String(loginPasswordPF.getPassword());
+        makeConnection();
+        try{
+            String sql="select ";
+        }
+        catch(Exception e){
+            
+        }
+        loginFrame.dispose();
+        
+    }//GEN-LAST:event_loginLoginBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -270,8 +385,14 @@ public class NITK_Social_App extends javax.swing.JFrame {
     private javax.swing.JFrame dashboard;
     private javax.swing.JFrame eventsFrame;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JButton loginButton;
     private javax.swing.JFrame loginFrame;
+    private javax.swing.JCheckBox loginIsOrganisationCB;
+    private javax.swing.JButton loginLoginBtn;
+    private javax.swing.JPasswordField loginPasswordPF;
+    private javax.swing.JTextField loginUserIdTF;
     private javax.swing.JFrame postDetailsFrame;
     private javax.swing.JFrame profileFrame;
     private javax.swing.JButton signUpButton;
