@@ -76,6 +76,13 @@ public class NITK_Social_App extends javax.swing.JFrame {
         postDetailsFrame = new javax.swing.JFrame();
         eventsFrame = new javax.swing.JFrame();
         createPostFrame = new javax.swing.JFrame();
+        jLabel4 = new javax.swing.JLabel();
+        createPostHeadingTF = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        createPostBodyTA = new javax.swing.JTextArea();
+        createPostSubmitBtn = new javax.swing.JButton();
         createEventFrame = new javax.swing.JFrame();
         dashboard = new javax.swing.JFrame();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -320,21 +327,73 @@ public class NITK_Social_App extends javax.swing.JFrame {
         createPostFrame.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         createPostFrame.setMinimumSize(new java.awt.Dimension(1837, 1055));
 
+        jLabel4.setFont(new java.awt.Font("Ubuntu", 1, 36)); // NOI18N
+        jLabel4.setText("Create a new Post");
+
+        createPostHeadingTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                createPostHeadingTFActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setText("Heading");
+
+        jLabel6.setText("Body");
+
+        createPostBodyTA.setColumns(20);
+        createPostBodyTA.setRows(5);
+        jScrollPane2.setViewportView(createPostBodyTA);
+
+        createPostSubmitBtn.setText("Submit");
+        createPostSubmitBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                createPostSubmitBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout createPostFrameLayout = new javax.swing.GroupLayout(createPostFrame.getContentPane());
         createPostFrame.getContentPane().setLayout(createPostFrameLayout);
         createPostFrameLayout.setHorizontalGroup(
             createPostFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1837, Short.MAX_VALUE)
+            .addGroup(createPostFrameLayout.createSequentialGroup()
+                .addGroup(createPostFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(createPostFrameLayout.createSequentialGroup()
+                        .addGap(94, 94, 94)
+                        .addGroup(createPostFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6))
+                        .addGap(45, 45, 45)
+                        .addGroup(createPostFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1526, Short.MAX_VALUE)
+                            .addComponent(createPostHeadingTF)))
+                    .addGroup(createPostFrameLayout.createSequentialGroup()
+                        .addGap(756, 756, 756)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(createPostFrameLayout.createSequentialGroup()
+                        .addGap(827, 827, 827)
+                        .addComponent(createPostSubmitBtn)))
+                .addContainerGap(78, Short.MAX_VALUE))
         );
         createPostFrameLayout.setVerticalGroup(
             createPostFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1055, Short.MAX_VALUE)
+            .addGroup(createPostFrameLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
+                .addGroup(createPostFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel5)
+                    .addComponent(createPostHeadingTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(50, 50, 50)
+                .addGroup(createPostFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 779, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(createPostSubmitBtn)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         createEventFrame.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        createEventFrame.setMaximumSize(new java.awt.Dimension(1837, 1055));
         createEventFrame.setMinimumSize(new java.awt.Dimension(1837, 1055));
-        createEventFrame.setPreferredSize(new java.awt.Dimension(1837, 1055));
 
         javax.swing.GroupLayout createEventFrameLayout = new javax.swing.GroupLayout(createEventFrame.getContentPane());
         createEventFrame.getContentPane().setLayout(createEventFrameLayout);
@@ -582,6 +641,28 @@ public class NITK_Social_App extends javax.swing.JFrame {
         
     }//GEN-LAST:event_loginLoginBtnActionPerformed
 
+    private void createPostHeadingTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createPostHeadingTFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_createPostHeadingTFActionPerformed
+
+    private void createPostSubmitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createPostSubmitBtnActionPerformed
+        // TODO add your handling code here:
+        makeConnection();
+        try{
+            String UserId=USER;
+            String Body=createPostBodyTA.getText();
+            String Heading=createPostHeadingTF.getText();
+            String sql="Insert INTO Post(UserID,Body,Heading,DateOfUpload) Values ('"+UserId+"','"+Body+"','"+Heading+"',curdate());";
+            stmt.executeUpdate(sql);
+            dashboard.setVisible(true);
+            createPostFrame.dispose();
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null,e.getMessage());
+        }
+        breakConnection();
+    }//GEN-LAST:event_createPostSubmitBtnActionPerformed
+
 
     /**
      * @param args the command line arguments
@@ -620,13 +701,20 @@ public class NITK_Social_App extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFrame createEventFrame;
+    private javax.swing.JTextArea createPostBodyTA;
     private javax.swing.JFrame createPostFrame;
+    private javax.swing.JTextField createPostHeadingTF;
+    private javax.swing.JButton createPostSubmitBtn;
     private javax.swing.JFrame dashboard;
     private javax.swing.JFrame eventsFrame;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
     private javax.swing.JButton loginButton;
     private javax.swing.JFrame loginFrame;
